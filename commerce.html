@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Site</title>
+    <style>
+        /* Previous styles remain the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .top-bar {
+            background-color: #f5f5f5;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4500;
+        }
+
+        .search-box {
+            flex: 0 1 600px;
+            display: flex;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .search-button {
+            padding: 8px 16px;
+            background-color: #ff4500;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            margin-right: 20px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .nav-item:hover {
+            background-color: #555;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">ECOMMERCE</div>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search products...">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="user-actions">
+            <a href="#">Account</a>
+            <a href="#">Cart</a>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <ul class="nav-menu">
+            <li class="nav-item" data-category="all">All Products</li>
+            <li class="nav-item" data-category="home">Home</li>
+            <li class="nav-item" data-category="appliances">Appliances</li>
+            <li class="nav-item" data-category="clothing">Clothing</li>
+            <li class="nav-item" data-category="phones">Phones</li>
+            <li class="nav-item" data-category="accessories">Accessories</li>
+            <li class="nav-item" data-category="beauty">Beauty</li>
+            <li class="nav-item" data-category="kitchen">Kitchen</li>
+            <li class="nav-item" data-category="food">Food</li>
+            <li class="nav-item" data-category="travel">Travel</li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="product-grid" id="productGrid"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-columns">
+            <div>
+                <h4>Customer Service</h4>
+                <ul>
+                    <li>Help Center</li>
+                    <li>Contact Us</li>
+                    <li>Returns</li>
+                </ul>
+            </div>
+            <div>
+                <h4>About Us</h4>
+                <ul>
+                    <li>Company Info</li>
+                    <li>Careers</li>
+                    <li>Investor Relations</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const categories = [
+            'home', 'appliances', 'clothing', 'phones',
+            'accessories', 'beauty', 'kitchen', 'food', 'travel'
+        ];
+
+        const products = [];
+        categories.forEach(category => {
+            for (let i = 1; i <= 20; i++) {
+                products.push({
+                    category,
+                    name: `${category.charAt(0).toUpperCase() + category.slice(1)} Product ${i}`,
+                    price: (Math.random() * 100 + 20).toFixed(2),
+                    image: `https://via.placeholder.com/200x200?text=${encodeURIComponent(`${category} ${i}`)}`
+                });
+            }
+        });
+
+        const productGrid = document.getElementById('productGrid');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        function renderProducts(filterCategory = 'all') {
+            productGrid.innerHTML = '';
+            const filtered = filterCategory === 'all' 
+                ? products 
+                : products.filter(p => p.category === filterCategory);
+            
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <h3>${product.name}</h3>
+                    <p>$${product.price}</p>
+                    <button>Add to Cart</button>
+                `;
+                card.querySelector('button').addEventListener('click', () => {
+                    alert('Added to cart: ' + product.name);
+                });
+                productGrid.appendChild(card);
+            });
+        }
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const category = item.dataset.category;
+                navItems.forEach(nav => nav.style.backgroundColor = 'transparent');
+                item.style.backgroundColor = '#555';
+                renderProducts(category);
+            });
+        });
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>
