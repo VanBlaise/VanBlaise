@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @VanBlaise
 - 👀 I’m interested in Tech
-- 🌱 I’m currently learning Front-End
+- 🌱 Currently learning Front-End Dev
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me vandu.emmanuel@gmail.com
 - 😄 Pronouns: He, Him, Sire, My Lord
