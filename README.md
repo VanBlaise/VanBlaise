@@ -4,7 +4,7 @@
 <!-- Animated Contribution Graph -->
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=VanBlaise&bg_color=0d1117&color=38c2ff&line=38c2ff&point=ffffff&area=true&hide_border=true)
 
-# 👋 Hi, I’m Blaise Emmanuel
+# 👋 Hi, I’m Blaise Vandu
 
 🚀 **Front-End Developer | Tech Enthusiast | Trader | Aspiring Data Scientist**  
 
@@ -53,9 +53,41 @@ I’m passionate about building beautiful, functional, and user-friendly web exp
 
 ## 📊 GitHub Stats  
 
-![VanBlaise's GitHub stats](https://github-readme-stats.vercel.app/api?username=VanBlaise&show_icons=true&theme=tokyonight)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=VanBlaise&layout=compact&theme=tokyonight)  
-![GitHub Streak](https://streak-stats.demolab.com?user=VanBlaise&theme=tokyonight)  
+<picture>
+  <source 
+    srcset="https://github-readme-stats.vercel.app/api?username=VanBlaise&show_icons=true&theme=tokyonight" 
+    media="(prefers-color-scheme: dark)" 
+  />
+  <source 
+    srcset="https://github-readme-stats.vercel.app/api?username=VanBlaise&show_icons=true&theme=default" 
+    media="(prefers-color-scheme: light)" 
+  />
+  <img src="https://github-readme-stats.vercel.app/api?username=VanBlaise&show_icons=true&theme=default" />
+</picture>
+
+<picture>
+  <source 
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=VanBlaise&layout=compact&theme=tokyonight" 
+    media="(prefers-color-scheme: dark)" 
+  />
+  <source 
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=VanBlaise&layout=compact&theme=default" 
+    media="(prefers-color-scheme: light)" 
+  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VanBlaise&layout=compact&theme=default" />
+</picture>
+
+<picture>
+  <source 
+    srcset="https://streak-stats.demolab.com?user=VanBlaise&theme=tokyonight" 
+    media="(prefers-color-scheme: dark)" 
+  />
+  <source 
+    srcset="https://streak-stats.demolab.com?user=VanBlaise&theme=default" 
+    media="(prefers-color-scheme: light)" 
+  />
+  <img src="https://streak-stats.demolab.com?user=VanBlaise&theme=default" />
+</picture>
 
 ---
 
